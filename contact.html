@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Avyukt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Avyukt<span>.</span></a>
+        <div class="nav-links">
+            <a href="index.html">School</a>
+            <a href="extracurriculars.html">Extracurriculars</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <!-- Updated Header -->
+        <h2 class="section-title" style="text-transform: none; font-size: 2.4rem;">Hey! Wanna talk? Reach out here.</h2>
+        
+        <!-- Form connected to Formspree with an ID added for JavaScript -->
+        <form id="contact-form" action="https://formspree.io/f/mdeoqjyg" method="POST">
+            
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            
+            <textarea name="message" rows="8" placeholder="What do you want to talk about? Enter your message here..." required></textarea>
+            
+            <button type="submit" id="submit-button">Send Message</button>
+            
+            <!-- This paragraph is hidden by default and will show the success message -->
+            <p id="form-status" style="display: none; color: var(--blue-vibrant); text-align: center; margin-top: 15px; font-weight: 600;"></p>
+        </form>
+    </section>
+
+    <!-- JavaScript to submit the form in the background -->
+    <!-- JavaScript to submit the form and redirect -->
+    <script>
+        const form = document.getElementById('contact-form');
+        const button = document.getElementById('submit-button');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); 
+            
+            button.innerText = 'Sending...'; 
+
+            const data = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // This line instantly redirects them to your new webpage!
+                    window.location.href = 'success.html';
+                } else {
+                    button.innerText = 'Oops! Error. Try Again.';
+                    button.style.backgroundColor = '#E63946'; 
+                }
+            } catch (error) {
+                button.innerText = 'Oops! Error. Try Again.';
+                button.style.backgroundColor = '#E63946';
+            }
+        });
+    </script>
