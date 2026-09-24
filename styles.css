@@ -263,3 +263,64 @@ button:hover {
     .card { padding: 30px; }
     .hero h1 { font-size: 3rem; }
 }
+
+/* =========================================
+   TABLET & MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+/* For iPads and Tablets (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%; 
+        padding: 20px;
+    }
+    
+    .nav-links {
+        gap: 15px; 
+    }
+}
+
+/* For Mobile Phones (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* Stack the navigation bar vertically */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Scale down large headers */
+    .section-title {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Make the contact form stretch edge-to-edge neatly */
+    form {
+        width: 100%;
+    }
+
+    input, textarea {
+        width: 100%;
+        box-sizing: border-box; /* Prevents padding from breaking the width */
+        margin-bottom: 15px;
+    }
+
+    /* Make buttons tap-friendly */
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
