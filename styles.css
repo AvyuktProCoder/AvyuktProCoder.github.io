@@ -259,9 +259,90 @@ button:hover {
     box-shadow: 0 10px 25px rgba(77, 184, 255, 0.4);
 }
 
+/* =========================================
+   IMAGE GALLERY & MEDIA STYLES
+   ========================================= */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin: 25px 0 15px 0;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(11, 17, 26, 0.7);
+    border: 1px solid rgba(77, 184, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue-vibrant);
+    box-shadow: 0 15px 35px rgba(77, 184, 255, 0.25);
+}
+
+.gallery-img-wrap {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0B111A;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.06);
+}
+
+.gallery-caption {
+    padding: 12px 16px;
+    background: rgba(17, 25, 38, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.92rem;
+    color: var(--text-white);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0 20px 0;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    background: rgba(42, 117, 211, 0.18);
+    color: var(--blue-vibrant);
+    border: 1px solid rgba(77, 184, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
 @media (max-width: 768px) {
     .card { padding: 30px; }
     .hero h1 { font-size: 3rem; }
+    .gallery-img-wrap { height: 230px; }
 }
 
 /* =========================================
