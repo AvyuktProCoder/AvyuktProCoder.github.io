@@ -339,10 +339,19 @@ button:hover {
     letter-spacing: 0.3px;
 }
 
+.gallery-img-wrap.portrait-wrap {
+    height: 380px;
+}
+
+.gallery-img-wrap.portrait-wrap .gallery-img {
+    object-position: top center;
+}
+
 @media (max-width: 768px) {
     .card { padding: 30px; }
     .hero h1 { font-size: 3rem; }
     .gallery-img-wrap { height: 230px; }
+    .gallery-img-wrap.portrait-wrap { height: 340px; }
 }
 
 /* =========================================
