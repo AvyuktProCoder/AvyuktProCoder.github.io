@@ -18,8 +18,10 @@
     </nav>
 
     <section class="container">
-        <!-- Updated Header -->
-        <h2 class="section-title" style="text-transform: none;">Hey! Wanna talk? Reach out here.</h2>
+        <div class="section-header">
+            <span class="section-badge">Get in Touch</span>
+            <h2 class="section-title">Let's Connect</h2>
+        </div>
         
         <!-- Form connected to Formspree with an ID added for JavaScript -->
         <form id="contact-form" action="https://formspree.io/f/mdeoqjyg" method="POST">
@@ -28,7 +30,7 @@
             <input type="email" name="email" placeholder="Your Email Address" required>
             <input type="text" name="subject" placeholder="Subject" required>
             
-            <textarea name="message" rows="8" placeholder="What do you want to talk about? Enter your message here..." required></textarea>
+            <textarea name="message" rows="7" placeholder="What do you want to talk about? Enter your message here..." required></textarea>
             
             <button type="submit" id="submit-button">Send Message</button>
             
@@ -38,7 +40,6 @@
     </section>
 
     <!-- JavaScript to submit the form in the background -->
-    <!-- JavaScript to submit the form and redirect -->
     <script>
         const form = document.getElementById('contact-form');
         const button = document.getElementById('submit-button');
@@ -47,6 +48,7 @@
             e.preventDefault(); 
             
             button.innerText = 'Sending...'; 
+            button.disabled = true;
 
             const data = new FormData(form);
             
@@ -60,15 +62,18 @@
                 });
 
                 if (response.ok) {
-                    // This line instantly redirects them to your new webpage!
                     window.location.href = 'success.html';
                 } else {
-                    button.innerText = 'Oops! Error. Try Again.';
+                    button.innerText = 'Error. Please Try Again.';
                     button.style.backgroundColor = '#E63946'; 
+                    button.disabled = false;
                 }
             } catch (error) {
-                button.innerText = 'Oops! Error. Try Again.';
+                button.innerText = 'Error. Please Try Again.';
                 button.style.backgroundColor = '#E63946';
+                button.disabled = false;
             }
         });
     </script>
+</body>
+</html>
