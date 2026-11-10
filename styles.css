@@ -538,3 +538,86 @@ button:disabled {
         grid-template-columns: 1fr;
     }
 }
+
+/* Shared theme surfaces: restrained dark palette and a complete light palette. */
+:root {
+    color-scheme: dark;
+    --page: #0b111b;
+    --page-end: #101b29;
+    --surface: #162131;
+    --surface-raised: #1b293a;
+    --field: #101a28;
+    --nav-surface: rgba(11, 17, 27, .94);
+    --heading: #f7faff;
+    --body-text: #dfe8f2;
+    --muted-text: #aab9cb;
+    --accent: #85c0ff;
+    --accent-strong: #3889df;
+    --accent-soft: rgba(119, 186, 255, .11);
+    --line: #2b3b4f;
+    --depth: 0 14px 36px rgba(0, 0, 0, .16);
+    --hero-glow: rgba(56, 137, 223, .12);
+    --button-text: #071522;
+}
+:root[data-theme="light"] {
+    color-scheme: light;
+    --page: #f5f7fb;
+    --page-end: #eaf0f7;
+    --surface: #fff;
+    --surface-raised: #f5f8fc;
+    --field: #fff;
+    --nav-surface: rgba(255, 255, 255, .95);
+    --heading: #142338;
+    --body-text: #26364a;
+    --muted-text: #51647a;
+    --accent: #135da9;
+    --accent-strong: #176fbe;
+    --accent-soft: rgba(19, 93, 169, .09);
+    --line: #d8e2ee;
+    --depth: 0 12px 32px rgba(31, 54, 82, .07);
+    --hero-glow: rgba(63, 143, 220, .1);
+    --button-text: #fff;
+}
+body { color: var(--body-text); background: linear-gradient(180deg, var(--page), var(--page-end)); background-attachment: scroll; }
+nav { gap: 1rem; background: var(--nav-surface); border-bottom: 1px solid var(--line); box-shadow: none; }
+.logo, .nav-links a.active, .hero h1, .section-title, .card h3 { color: var(--heading); text-shadow: none; }
+.logo span { color: var(--accent); }
+.nav-links { margin-left: auto; gap: .2rem; }
+.nav-links a { color: var(--muted-text); }
+.nav-links a:hover, .nav-links a.active { color: var(--heading); background: var(--accent-soft); border-color: transparent; }
+.theme-toggle {
+    display: inline-flex; flex: none; align-items: center; justify-content: center; gap: .45rem;
+    width: auto; min-height: 40px; padding: .4rem .7rem; margin: 0;
+    color: var(--body-text); background: var(--surface); border: 1px solid var(--line);
+    border-radius: 9px; font: 500 .83rem 'Poppins', sans-serif; letter-spacing: 0;
+    box-shadow: none; white-space: nowrap;
+}
+.theme-toggle:hover { transform: none; background: var(--surface-raised); border-color: var(--accent); box-shadow: none; }
+.theme-icon { font-size: 1rem; line-height: 1; }
+.hero { background: radial-gradient(ellipse at 50% 0%, var(--hero-glow), transparent 65%); border-bottom: 1px solid var(--line); }
+.hero p { color: var(--muted-text); text-shadow: none; }
+.section-badge, .tech-tag { color: var(--accent); background: var(--accent-soft); border-color: var(--line); }
+.section-title::after { background: var(--accent); height: 2px; opacity: .65; }
+.card, form { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--depth); backdrop-filter: none; }
+.card::before { display: none; }
+.card:hover { border-color: var(--line); box-shadow: var(--depth); transform: none; }
+.card p, .card li { color: var(--body-text); }
+.card li strong, .sub-section h4 { color: var(--accent); }
+.sub-section { border-color: var(--line); }
+.gallery-item { background: var(--surface-raised); border-color: var(--line); box-shadow: none; }
+.gallery-item:hover { border-color: var(--accent); box-shadow: none; }
+.gallery-img-wrap, .gallery-caption { background: var(--surface-raised); }
+.gallery-caption { color: var(--body-text); border-color: var(--line); }
+input, textarea { color: var(--body-text); background: var(--field); border-color: var(--line); }
+input:focus, textarea:focus { background: var(--field); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+input::placeholder, textarea::placeholder { color: var(--muted-text); opacity: 1; }
+button[type="submit"], .button-link { color: var(--button-text); background: var(--accent-strong); box-shadow: none; }
+button[type="submit"]:hover, .button-link:hover { box-shadow: none; filter: brightness(1.1); }
+#form-status, .success-hero h1 { color: var(--accent); }
+.success-hero p { color: var(--body-text); }
+:focus-visible { outline-color: var(--accent); }
+@media (max-width: 768px) {
+    nav { flex-direction: row; flex-wrap: wrap; }
+    .nav-links { order: 3; margin-left: 0; }
+    .theme-toggle { margin-left: auto; }
+}
