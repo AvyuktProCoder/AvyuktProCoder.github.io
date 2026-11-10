@@ -21,11 +21,7 @@
         root.style.colorScheme = theme;
         const toggle = document.querySelector('.theme-toggle');
         if (toggle) {
-            const next = theme === 'dark' ? 'light' : 'dark';
-            toggle.setAttribute('aria-label', `Switch to ${next} mode`);
-            toggle.setAttribute('aria-pressed', String(theme === 'light'));
-            toggle.querySelector('.theme-label').textContent = `${next[0].toUpperCase()}${next.slice(1)} mode`;
-            toggle.querySelector('.theme-icon').textContent = theme === 'dark' ? '☀' : '☾';
+            toggle.setAttribute('aria-checked', String(theme === 'dark'));
         }
     }
 

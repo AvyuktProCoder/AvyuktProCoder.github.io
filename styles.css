@@ -619,5 +619,46 @@ button[type="submit"]:hover, .button-link:hover { box-shadow: none; filter: brig
 @media (max-width: 768px) {
     nav { flex-direction: row; flex-wrap: wrap; }
     .nav-links { order: 3; margin-left: 0; }
-    .theme-toggle { margin-left: auto; }
+    .theme-toggle { margin-left: 0; }
+}
+
+/* Compact switch at the left edge of the navigation. */
+.theme-toggle {
+    order: 0;
+    width: 58px;
+    min-width: 58px;
+    min-height: 36px;
+    padding: 3px;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: none;
+}
+.theme-toggle:hover { background: transparent; border: 0; }
+.switch-track {
+    display: flex;
+    align-items: center;
+    width: 52px;
+    height: 30px;
+    padding: 3px;
+    background: #b8c9dd;
+    border: 1px solid #9dafc5;
+    border-radius: 999px;
+    transition: background .2s, border-color .2s;
+}
+.switch-thumb {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    transition: transform .2s;
+}
+[data-theme="dark"] .switch-track { background: #327cc7; border-color: #5695d4; }
+[data-theme="dark"] .switch-thumb { transform: translateX(22px); }
+.theme-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+    .switch-track, .switch-thumb { transition: none; }
 }
